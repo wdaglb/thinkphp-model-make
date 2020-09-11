@@ -112,14 +112,14 @@ class MakeCommand extends Command
             $timestampStr .= '    protected $autoWriteTimestamp = true;' . PHP_EOL;
         }
         if ($timestamp['create']) {
-            $timestampStr .= '    protected $create_time = \'create_time\';' . PHP_EOL;
+            $timestampStr .= '    protected $createTime = \'create_time\';' . PHP_EOL;
         } else {
-            $timestampStr .= '    protected $create_time = false;' . PHP_EOL;
+            $timestampStr .= '    protected $createTime = false;' . PHP_EOL;
         }
         if ($timestamp['update']) {
-            $timestampStr .= '    protected $update_time = \'update_time\';' . PHP_EOL;
+            $timestampStr .= '    protected $updateTime = \'update_time\';' . PHP_EOL;
         } else {
-            $timestampStr .= '    protected $update_time = false;' . PHP_EOL;
+            $timestampStr .= '    protected $updateTime = false;' . PHP_EOL;
         }
         $content = str_replace([
             '{%namespace%}',
