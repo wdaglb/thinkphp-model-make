@@ -4,7 +4,6 @@
     <list default="true" id="ae692b5d-128c-44c9-af56-62c2b2ace607" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MakeCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MakeCommand.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +50,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599806669429</updated>
-      <workItem from="1599806670500" duration="1369000" />
+      <workItem from="1599806670500" duration="1850000" />
     </task>
     <task id="LOCAL-00001" summary="model名称修改">
       <created>1599808406842</created>
@@ -67,7 +66,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599808579960</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="output dir">
+      <created>1599808796909</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599808796909</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -76,16 +82,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="model名称修改" />
     <MESSAGE value="auto model" />
-    <option name="LAST_COMMIT_MESSAGE" value="auto model" />
+    <MESSAGE value="output dir" />
+    <option name="LAST_COMMIT_MESSAGE" value="output dir" />
   </component>
   <component name="WindowStateProjectService">
     <state x="186" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599808396497">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="186" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599808396497" />
-    <state x="558" y="87" key="CommitChangelistDialog2" timestamp="1599808579208">
+    <state x="558" y="87" key="CommitChangelistDialog2" timestamp="1599808796016">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="558" y="87" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599808579208" />
+    <state x="558" y="87" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599808796016" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599809030724">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599809030724" />
   </component>
 </project>

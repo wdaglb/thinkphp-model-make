@@ -96,6 +96,10 @@ class MakeCommand extends Command
 
         $namespace = $input->getOption('namespace');
 
+
+        if (!is_dir($output_dir . $namespace)) {
+            mkdir($output_dir . $namespace, 0555, true);
+        }
         $file = $output_dir . $namespace . '/' . $classname . '.php';
 
         if (is_file($file)) {
@@ -124,7 +128,7 @@ class MakeCommand extends Command
             '{%types%}',
             '{%timestamp%}'
         ], [
-            'app\\' . str_replace('/', '\\', $model_dir . 'model\\' . $namespace),
+            'app\\' . str_replace('/', '\\', ($model_dir ? $model_dir . '/' : '') . 'model\\' . $namespace),
             $classname,
             $comment,
             $types,
