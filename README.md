@@ -7,6 +7,15 @@ thinkphp model生成器
 composer require ke/thinkphp-model-make
 ```
 
+注册命令
+```
+// app/command.php
+
+return [
+    \ke\model\MakeCommand::class,
+];
+```
+
 使用
 ```
 php think ke:model:make --table=project
