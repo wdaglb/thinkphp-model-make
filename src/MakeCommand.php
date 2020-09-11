@@ -74,7 +74,9 @@ class MakeCommand extends Command
                 $data_type = 'string';
             }
 
-            $propertys[] = " * @property {$data_type} \${$item['column_name']} {$item['column_comment']}";
+            if (!in_array($item['column_name'], ['create_time', 'update_time'])) {
+                $propertys[] = " * @property {$data_type} \${$item['column_name']} {$item['column_comment']}";
+            }
             if ($type) {
                 $types .= sprintf("        '%s'=>'%s',", $item['column_name'], $type) . PHP_EOL;
             }
