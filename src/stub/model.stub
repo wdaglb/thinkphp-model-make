@@ -1,0 +1,17 @@
+<?php
+
+namespace {%namespace%};
+
+use think\Model;
+
+/**
+{%propertys%}
+ */
+class {%className%} extends Model
+{
+{%timestamp%}
+    protected $type = [
+{%types%}
+    ];
+
+}

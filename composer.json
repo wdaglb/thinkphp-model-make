@@ -1,0 +1,17 @@
+{
+    "name": "ke/thinkphp-model-make",
+    "type": "library",
+    "description": "thinkphp model生成器",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "king east",
+            "email": "1207877378@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ke\\model\\": "./"
+        }
+    }
+}
