@@ -19,7 +19,7 @@ use think\facade\App;
 use think\facade\Config;
 use function Symfony\Component\String\u;
 
-class Make extends Command
+class MakeCommand extends Command
 {
 
     public function configure()
