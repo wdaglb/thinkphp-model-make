@@ -38,7 +38,7 @@ class MakeCommand extends Command
         $pre = Config::get('database.prefix');
         $database = Config::get('database.database');
 
-        $model_dir = ($input->getOption('dir') ?? 'common/');
+        $model_dir = ($input->getOption('dir') ?? 'common');
         $output_dir = App::getAppPath() . $model_dir . '/' . 'model/';
 
         if (!is_dir($output_dir)) {
