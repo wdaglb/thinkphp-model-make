@@ -5,6 +5,9 @@ thinkphp model生成器
 
 ```
 composer require ke/thinkphp-model-make
+
+## 或者使用最新版本的
+composer require ke/thinkphp-model-make dev-master
 ```
 
 注册命令
