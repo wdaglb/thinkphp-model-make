@@ -37,9 +37,10 @@ class MakeCommand extends Command
         $table = $input->getOption('table');
         $pre = Config::get('database.prefix');
         $database = Config::get('database.database');
+        $mutil_module = Config::get('app_multi_module');
 
         $model_dir = ($input->getOption('dir') ?? 'common');
-        $output_dir = App::getAppPath() . $model_dir . '/' . 'model/';
+        $output_dir = App::getAppPath() . ($mutil_module ? $model_dir . '/' : '') . 'model/';
 
         if (!is_dir($output_dir)) {
             mkdir($output_dir, 0555, true);
@@ -60,7 +61,17 @@ class MakeCommand extends Command
             'update'=>false,
         ];
         foreach ($res as $item) {
+            if ($item['column_name'] === 'create_time') {
+                $timestamp['create'] = true;
+                continue;
+            }
+
+            if ($item['column_name'] === 'update_time') {
+                $timestamp['update'] = true;
+                continue;
+            }
             $data_type = $item['data_type'];
+
             $type = null;
             if (strpos($data_type, 'char') !== false || strpos($data_type, 'text') !== false || strpos($data_type, 'blob') !== false) {
                 $data_type = 'string';
@@ -72,21 +83,14 @@ class MakeCommand extends Command
                 $type = 'float';
             } else if (in_array($data_type, ['date', 'time', 'year', 'datetime', 'timestamp'])) {
                 $data_type = 'string';
+            } else if ($data_type === 'json') {
+                $data_type = 'array';
+                $type = 'json';
             }
 
-            if (!in_array($item['column_name'], ['create_time', 'update_time'])) {
-                $propertys[] = " * @property {$data_type} \${$item['column_name']} {$item['column_comment']}";
-            }
+            $propertys[] = " * @property {$data_type} \${$item['column_name']} {$item['column_comment']}";
             if ($type) {
                 $types .= sprintf("        '%s'=>'%s',", $item['column_name'], $type) . PHP_EOL;
-            }
-
-            if ($item['column_name'] === 'create_time') {
-                $timestamp['create'] = true;
-            }
-
-            if ($item['column_name'] === 'update_time') {
-                $timestamp['update'] = true;
             }
         }
         $comment = implode("\r\n", $propertys);
@@ -123,6 +127,16 @@ class MakeCommand extends Command
         } else {
             $timestampStr .= '    protected $updateTime = false;' . PHP_EOL;
         }
+
+        $ns = ['app'];
+        if ($mutil_module) {
+            $ns[] = str_replace('/', '\\', ($model_dir ? $model_dir . '/' : ''));
+        }
+        $ns[] = 'model';
+        if ($namespace) {
+            $ns[] = $namespace;
+        }
+
         $content = str_replace([
             '{%namespace%}',
             '{%className%}',
@@ -130,7 +144,7 @@ class MakeCommand extends Command
             '{%types%}',
             '{%timestamp%}'
         ], [
-            'app\\' . str_replace('/', '\\', ($model_dir ? $model_dir . '/' : '') . 'model\\' . $namespace),
+            implode('\\', $ns),
             $classname,
             $comment,
             $types,
